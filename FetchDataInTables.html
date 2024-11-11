@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- JQUERY -- REact, express, nest, Next, Node -- Libraries  -->
+    <!-- 
+    "id": 1,
+    "email": "george.bluth@reqres.in",
+    "first_name": "George",
+    "last_name": "Bluth",
+    "avatar": "https://reqres.in/img/faces/1-image.jpg" -->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody id="myTableBody"></tbody>
+    </table>
+
+    <script>
+        $.ajax({
+            method:"get",
+            url:"https://reqres.in/api/users",
+            success: function(res){
+                arrayOfObjects = res.data;
+                buildTable(arrayOfObjects);
+// [
+//     {
+//       "id": 1,
+//       "email": "george.bluth@reqres.in",
+//       "first_name": "George",
+//       "last_name": "Bluth",
+//       "avatar": "https://reqres.in/img/faces/1-image.jpg"
+//     },
+//     {
+//       "id": 2,
+//       "email": "janet.weaver@reqres.in",
+//       "first_name": "Janet",
+//       "last_name": "Weaver",
+//       "avatar": "https://reqres.in/img/faces/2-image.jpg"
+//     },
+//     {
+//       "id": 3,
+//       "email": "emma.wong@reqres.in",
+//       "first_name": "Emma",
+//       "last_name": "Wong",
+//       "avatar": "https://reqres.in/img/faces/3-image.jpg"
+//     },
+//     {
+//       "id": 4,
+//       "email": "eve.holt@reqres.in",
+//       "first_name": "Eve",
+//       "last_name": "Holt",
+//       "avatar": "https://reqres.in/img/faces/4-image.jpg"
+//     },
+//     {
+//       "id": 5,
+//       "email": "charles.morris@reqres.in",
+//       "first_name": "Charles",
+//       "last_name": "Morris",
+//       "avatar": "https://reqres.in/img/faces/5-image.jpg"
+//     },
+//     {
+//       "id": 6,
+//       "email": "tracey.ramos@reqres.in",
+//       "first_name": "Tracey",
+//       "last_name": "Ramos",
+//       "avatar": "https://reqres.in/img/faces/6-image.jpg"
+//     }]
+
+            }
+        })
+        function buildTable(arrayOfObjects){
+            let tableBody = document.getElementById("myTableBody");
+            // loop
+            for (let i = 0; i < arrayOfObjects.length; i++) {
+                    var row = `
+                    <tr>
+                        <td>${arrayOfObjects[i].id}</td>          
+                        <td>${arrayOfObjects[i].first_name}</td>          
+                        <td>${arrayOfObjects[i].last_name}</td>          
+                        <td>${arrayOfObjects[i].email}</td>          
+                        <td><img src="${arrayOfObjects[i].avatar}"></td>          
+                    </tr>`;
+                    tableBody.innerHTML +=row;
+            }
+        }
+        // array.length
+
+    </script>
+</body>
+
+</html>
+
