@@ -277,7 +277,7 @@ let age = 80;
 // Callback Hell -- Pyramid of Doom 
 
 // function hello(thisFunction) {
-//     console.log("Hello its a hello function " );
+//    
 //     thisFunction();
 
 // }
@@ -312,20 +312,30 @@ let age = 80;
 
 // Async Await  --- Pending !! -- APIs 
 
+
 // Document -- Web APIs 
 // DOCUMENT OBJECT MODEL 
 
 // Classname 
 // id 
 // tagName 
-// let myContainer = document.querySelector(".container").textContent;
-// console.log(myContainer);
-// let oldDiv = document.getElementById("container");
-// let newDiv = document.createElement("div");
 
-// newDiv.id = "newBox";
-// newDiv.className = "newClassOfDiv";
-// newDiv.textContent = "this is brand new div"
+// document.querySelector(".container")
+
+{/* <div class="container">this is a div
+</div> */}
+
+let myContainer = document.querySelector(".container");
+myContainer.getAttribute("id");
+myContainer.setAttribute("id", "myContainerNew");
+console.log(myContainer);
+// let oldDiv = document.getElementById("container");
+// let newDiv = document.createElement("div"); <div></div>
+
+// newDiv.id = "newBox"; <div id = "newBox"></div>
+// newDiv.className = "newClassOfDiv"; <div id = "newBox" class= "newClassOfDiv"></div>
+// newDiv.textContent = "this is brand new div" 
+{/* <div id = "newBox" class= "newClassOfDiv">this is brand new div</div> */}
 // console.log(newDiv);
 
 // document.body.appendChild(newDiv);
@@ -337,6 +347,7 @@ let age = 80;
 // oldDiv.style.width = "100px"
 
 // newDiv.style.background = "blue";
+{/* <div id = "newBox" class= "newClassOfDiv" style="background:blue;">this is brand new div</div>  */}
 // newDiv.style.height = "200px";
 // newDiv.style.width = "400px";
 // newDiv.textContent = "Something Else"
